@@ -1,32 +1,27 @@
-function mostrarDados(array) {
-    
-let recorde = 0
-let piorJogo = 0
-function recoresEPiorJogo () {
-        for (let i = 0; i < array.length; i++) {
-            if ( array[i] >= 20) {
-                recorde ++
-                
-            }
-        }
-        
-        for (let i =0 ; i < array.length; i++) {
-            if(array[i] > 0) {
-                [n]=[i]
-                piorJogo = n
-            }
-        }
-        recordesBatidosEPiorJogo.push(recorde, piorJogo)
+let string = "10 20 30 0 20 10 25 30"
 
-        console.log(recordesBatidosEPiorJogo)
-        
+let novoArray = string.split(" ") 
+let maiorPontuacao = Math.max.apply(null,novoArray)
+let menorPontuacao = Math.min.apply(null,novoArray)
+let menorPontuacaoERecordesBatidos= []
+
+let contador = 0
+let indice = 0
+while(contador < novoArray.length){ 
+    
+    if(novoArray[indice] == menorPontuacao) {
+        menorPontuacaoERecordesBatidos.push(novoArray.indexOf(novoArray[indice]))
     }
-    recoresEPiorJogo()
+    indice++
+    contador++
+}
+let recordeBatidos = 0
+for(let i = 0; i< novoArray.length; i++) {
+    if(novoArray[i] > novoArray[1]) {
+        recordeBatidos += 1
+    }
     
 }
+menorPontuacaoERecordesBatidos.push(recordeBatidos)
 
-let recordesBatidosEPiorJogo = []
-
-const jogos = "10 20 25 30 1 5 40".split(" ")
-
- mostrarDados(jogos)
+console.log(menorPontuacaoERecordesBatidos)
